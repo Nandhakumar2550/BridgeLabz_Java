@@ -1,0 +1,21 @@
+package control_flows.level1;
+import java.util.*;
+public class FactorialWhile {
+    public static void main(String args[]){
+        Scanner scan =new Scanner(System.in);
+        System.out.println("Enter the number");
+        int num=scan.nextInt();
+        if(num>0){
+            int count=1;
+            int sum=1;
+            while(count<=num){
+                sum=sum*count;
+                count++;
+            }
+            System.out.println("The factorial of " + num + " is " + sum);
+        }else{
+            System.out.println("Enter the positive number");
+        }
+        scan.close();
+    }
+}
