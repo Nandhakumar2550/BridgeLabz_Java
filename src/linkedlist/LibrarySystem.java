@@ -1,4 +1,4 @@
-package linkedList;
+package linkedlist;
 
 class BookNode {
     int id;

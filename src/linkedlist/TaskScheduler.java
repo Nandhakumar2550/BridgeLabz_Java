@@ -1,4 +1,5 @@
-package linkedList;
+package linkedlist;
+
 class TaskNode {
 
     int id;
