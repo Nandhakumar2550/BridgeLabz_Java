@@ -2,35 +2,50 @@ package sorting;
 
 public class InsertionSortEmployees {
 
+    // Method to perform Insertion Sort
     static void insertionSort(int arr[]){
 
-        for(int i=1;i<arr.length;i++){
+        // Start from second element (index 1)
+        for(int i = 1; i < arr.length; i++){
 
+            // Store current element as key
             int key = arr[i];
-            int j = i-1;
 
-            while(j>=0 && arr[j] > key){
+            // Initialize previous index
+            int j = i - 1;
 
-                arr[j+1] = arr[j];
+            // Shift elements greater than key to one position ahead
+            while(j >= 0 && arr[j] > key){
+
+                // Move element one step to the right
+                arr[j + 1] = arr[j];
+
+                // Move to previous element
                 j--;
             }
 
-            arr[j+1] = key;
+            // Place key at correct position
+            arr[j + 1] = key;
         }
     }
 
+    // Method to print array elements
     static void print(int arr[]){
 
-        for(int num:arr)
-            System.out.print(num+" ");
+        // Iterate and print each element
+        for(int num : arr)
+            System.out.print(num + " ");
     }
 
     public static void main(String[] args) {
 
-        int ids[] = {105,102,110,101,108};
+        // Array of employee IDs
+        int ids[] = {105, 102, 110, 101, 108};
 
+        // Sort using Insertion Sort
         insertionSort(ids);
 
+        // Print sorted array
         print(ids);
     }
 }

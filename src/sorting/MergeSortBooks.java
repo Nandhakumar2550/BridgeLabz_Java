@@ -2,24 +2,34 @@ package sorting;
 
 public class MergeSortBooks {
 
-    static void merge(int arr[],int left,int mid,int right){
+    // Method to merge two sorted subarrays
+    static void merge(int arr[], int left, int mid, int right){
 
-        int n1 = mid-left+1;
-        int n2 = right-mid;
+        // Size of left subarray
+        int n1 = mid - left + 1;
 
+        // Size of right subarray
+        int n2 = right - mid;
+
+        // Create temporary arrays
         int L[] = new int[n1];
         int R[] = new int[n2];
 
-        for(int i=0;i<n1;i++)
-            L[i] = arr[left+i];
+        // Copy data into left subarray
+        for(int i = 0; i < n1; i++)
+            L[i] = arr[left + i];
 
-        for(int j=0;j<n2;j++)
-            R[j] = arr[mid+1+j];
+        // Copy data into right subarray
+        for(int j = 0; j < n2; j++)
+            R[j] = arr[mid + 1 + j];
 
-        int i=0,j=0,k=left;
+        // Initial indices for L, R, and merged array
+        int i = 0, j = 0, k = left;
 
-        while(i<n1 && j<n2){
+        // Merge the two arrays
+        while(i < n1 && j < n2){
 
+            // Compare elements and insert smaller one
             if(L[i] <= R[j])
                 arr[k++] = L[i++];
 
@@ -27,38 +37,52 @@ public class MergeSortBooks {
                 arr[k++] = R[j++];
         }
 
-        while(i<n1)
+        // Copy remaining elements of L (if any)
+        while(i < n1)
             arr[k++] = L[i++];
 
-        while(j<n2)
+        // Copy remaining elements of R (if any)
+        while(j < n2)
             arr[k++] = R[j++];
     }
 
-    static void mergeSort(int arr[],int left,int right){
+    // Method to perform Merge Sort
+    static void mergeSort(int arr[], int left, int right){
 
+        // Check if more than one element exists
         if(left < right){
 
-            int mid = (left+right)/2;
+            // Find middle index
+            int mid = (left + right) / 2;
 
-            mergeSort(arr,left,mid);
-            mergeSort(arr,mid+1,right);
+            // Recursively sort left half
+            mergeSort(arr, left, mid);
 
-            merge(arr,left,mid,right);
+            // Recursively sort right half
+            mergeSort(arr, mid + 1, right);
+
+            // Merge the sorted halves
+            merge(arr, left, mid, right);
         }
     }
 
+    // Method to print array elements
     static void print(int arr[]){
 
-        for(int num:arr)
-            System.out.print(num+" ");
+        // Iterate and print each element
+        for(int num : arr)
+            System.out.print(num + " ");
     }
 
     public static void main(String[] args) {
 
-        int prices[] = {450,300,800,200,600};
+        // Array of book prices
+        int prices[] = {450, 300, 800, 200, 600};
 
-        mergeSort(prices,0,prices.length-1);
+        // Sort using Merge Sort
+        mergeSort(prices, 0, prices.length - 1);
 
+        // Print sorted array
         print(prices);
     }
 }

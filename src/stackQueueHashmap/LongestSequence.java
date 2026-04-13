@@ -4,38 +4,53 @@ import java.util.HashSet;
 
 public class LongestSequence {
 
+    // Method to find length of longest consecutive sequence
     static int longest(int arr[]){
 
+        // HashSet to store unique elements for fast lookup
         HashSet<Integer> set = new HashSet<>();
 
-        for(int num:arr)
+        // Add all elements to the set
+        for(int num : arr)
             set.add(num);
 
+        // Variable to store longest sequence length
         int longest = 0;
 
-        for(int num:arr){
+        // Traverse each element
+        for(int num : arr){
 
-            if(!set.contains(num-1)){
+            // Check if it is the start of a sequence
+            // (no previous element exists)
+            if(!set.contains(num - 1)){
 
+                // Start counting from current number
                 int current = num;
+
+                // Initialize count
                 int count = 1;
 
-                while(set.contains(current+1)){
+                // Expand sequence forward
+                while(set.contains(current + 1)){
                     current++;
                     count++;
                 }
 
-                longest = Math.max(longest,count);
+                // Update longest sequence length
+                longest = Math.max(longest, count);
             }
         }
 
+        // Return longest consecutive sequence length
         return longest;
     }
 
     public static void main(String[] args) {
 
-        int arr[] = {100,4,200,1,3,2};
+        // Sample array
+        int arr[] = {100, 4, 200, 1, 3, 2};
 
+        // Print longest sequence length
         System.out.println(longest(arr));
     }
 }
