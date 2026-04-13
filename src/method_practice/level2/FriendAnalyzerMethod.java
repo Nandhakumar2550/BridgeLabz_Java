@@ -1,42 +1,71 @@
 package method_practice.level2;
 import java.util.*;
-public class FriendAnalyzerMethod {
-    public static int findYoungest(int[] age){
-        int young=0;
-        for(int i=1;i<age.length;i++){
-            if(age[young]>age[i]){
-                young=i;
-            }
-        }
-        return young;
+
+class Friend {
+    String name;
+    int age;
+    double height;
+
+    Friend(String name, int age, double height) {
+        this.name = name;
+        this.age = age;
+        this.height = height;
     }
-    public static int findTallest(double[] height){
-        int index=0;
-        for(int i=1;i<height.length;i++){
-            if(height[index]<height[i]){
-                index=i;
+}
+
+public class FriendAnalyzerMethod {
+
+    public static Friend findYoungest(Friend[] friends){
+        Friend youngest = friends[0];
+        // Assume first friend is youngest
+
+        for(Friend f : friends){
+            if(f.age < youngest.age){
+                youngest = f;
+                // Update youngest
             }
         }
-        return index;
+        return youngest;
+    }
+
+    public static Friend findTallest(Friend[] friends){
+        Friend tallest = friends[0];
+        // Assume first friend is tallest
+
+        for(Friend f : friends){
+            if(f.height > tallest.height){
+                tallest = f;
+                // Update tallest
+            }
+        }
+        return tallest;
     }
 
     public static void main(String[] args) {
-        Scanner scan=new Scanner(System.in);
-        String[] names={"Amar", "Akbar", "Anthony"};
-        int[] age=new int[3];
-        double[] height=new double[3];
-        for(int i=0;i<age.length;i++){
-            System.out.println("Enter the age " + names[i] + " :");
-            age[i]=scan.nextInt();
-        }
-        for(int i=0;i<height.length;i++){
-            System.out.println("Enter the height " + height[i] + " :");
-            height[i]=scan.nextDouble();
-        }
-        int youngestIndex = findYoungest(age);
-        int tallestIndex = findTallest(height);
 
-        System.out.println("Youngest: " +  names[youngestIndex]);
-        System.out.println("Tallest: " + names[tallestIndex]);
+        Scanner scan = new Scanner(System.in);
+
+        String[] names = {"Amar", "Akbar", "Anthony"};
+        Friend[] friends = new Friend[3];
+
+        for(int i = 0; i < friends.length; i++){
+
+            System.out.println("Enter age of " + names[i]);
+            int age = scan.nextInt();
+
+            System.out.println("Enter height of " + names[i]);
+            double height = scan.nextDouble();
+
+            friends[i] = new Friend(names[i], age, height);
+            // Create object
+        }
+
+        Friend youngest = findYoungest(friends);
+        Friend tallest = findTallest(friends);
+
+        System.out.println("Youngest: " + youngest.name + " (" + youngest.age + ")");
+        System.out.println("Tallest: " + tallest.name + " (" + tallest.height + ")");
+
+        scan.close();
     }
 }

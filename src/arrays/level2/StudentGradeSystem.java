@@ -1,5 +1,6 @@
 package arrays.level2;
 import java.util.*;
+
 public class StudentGradeSystem {
     public static void main(String[] args) {
 
@@ -9,12 +10,14 @@ public class StudentGradeSystem {
 
         System.out.print("Enter number of students: ");
         numberOfStudents = input.nextInt();
+        // Reads number of students
 
         double[] physics = new double[numberOfStudents];
         double[] chemistry = new double[numberOfStudents];
         double[] maths = new double[numberOfStudents];
         double[] percentage = new double[numberOfStudents];
         String[] grade = new String[numberOfStudents];
+        // Arrays to store marks, percentage, and grades
 
         for (int i = 0; i < numberOfStudents; i++) {
 
@@ -29,19 +32,21 @@ public class StudentGradeSystem {
 
             if (physics[i] < 0 || chemistry[i] < 0 || maths[i] < 0) {
                 System.out.println("Invalid marks. Enter again.");
-                i--;
+                i--; // repeat same student
             }
         }
 
         for (int i = 0; i < numberOfStudents; i++) {
 
             percentage[i] = (physics[i] + chemistry[i] + maths[i]) / 3;
+            // Calculates percentage
 
             if (percentage[i] >= 90) grade[i] = "A";
             else if (percentage[i] >= 75) grade[i] = "B";
             else if (percentage[i] >= 60) grade[i] = "C";
             else if (percentage[i] >= 50) grade[i] = "D";
             else grade[i] = "F";
+            // Assigns grade
         }
 
         for (int i = 0; i < numberOfStudents; i++) {
@@ -49,5 +54,7 @@ public class StudentGradeSystem {
                     " Percentage: " + percentage[i] +
                     " Grade: " + grade[i]);
         }
+
+        input.close();
     }
 }
