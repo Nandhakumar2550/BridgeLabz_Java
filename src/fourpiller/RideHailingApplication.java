@@ -1,32 +1,47 @@
 package fourpiller;
+
+// Abstract class representing a vehicle
 abstract class Vehicles{
 
+    // Name of the driver
     String driver;
+
+    // Rate per km
     double rate;
 
-    Vehicles(String d,double r){
-        driver=d;
-        rate=r;
+    // Constructor to initialize driver and rate
+    Vehicles(String d, double r){
+        driver = d;
+        rate = r;
     }
 
+    // Abstract method to calculate fare based on distance
     abstract double calculateFare(double distance);
 }
 
+// Car class inheriting from Vehicles
 class Cars extends Vehicles{
 
-    Cars(String d,double r){
-        super(d,r);
+    // Constructor calling parent constructor
+    Cars(String d, double r){
+        super(d, r);
     }
 
+    // Fare calculation = distance × rate
     double calculateFare(double distance){
-        return distance*rate;
+        return distance * rate;
     }
 }
+
+// Main class
 public class RideHailingApplication {
+
     public static void main(String[] args){
 
-        Vehicles v=new Cars("Ravi",15);
+        // Polymorphism: parent reference with child object
+        Vehicles v = new Cars("Ravi", 15);
 
-        System.out.println("Fare:"+v.calculateFare(10));
+        // Calculate and display fare for 10 km
+        System.out.println("Fare:" + v.calculateFare(10));
     }
 }
