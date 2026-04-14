@@ -6,21 +6,27 @@ public class ReverseQueueProgram {
 
     public static void main(String[] args) {
 
-        // created queue
-        Queue<Integer> q = new LinkedList<>(Arrays.asList(10,20,30));
+        // Create queue with elements
+        Queue<Integer> q = new LinkedList<>(Arrays.asList(10, 20, 30));
 
+        // Stack to help reverse the queue
         Stack<Integer> stack = new Stack<>();
 
-        // moving queue to stack
+        // Move all elements from queue to stack
         while(!q.isEmpty()) {
+
+            // Remove element from queue and push to stack
             stack.push(q.remove());
         }
 
-        // moving back to queue
+        // Move elements back from stack to queue
         while(!stack.isEmpty()) {
+
+            // Pop from stack and add back to queue
             q.add(stack.pop());
         }
 
+        // Print reversed queue
         System.out.println(q);
     }
 }

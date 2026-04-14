@@ -6,17 +6,23 @@ public class RotateListProgram {
 
     public static void main(String[] args) {
 
-        // input list
-        List<Integer> list = new ArrayList<>(Arrays.asList(10,20,30,40,50));
+        // Create list with elements
+        List<Integer> list = new ArrayList<>(Arrays.asList(10, 20, 30, 40, 50));
+
+        // Number of rotations (left rotation)
         int k = 2;
 
-        // rotating list
-        for(int i=0; i<k; i++) {
-            int first = list.remove(0); // remove first element
-            list.add(first);           // add at last
+        // Perform rotation k times
+        for(int i = 0; i < k; i++) {
+
+            // Remove first element
+            int first = list.remove(0);
+
+            // Add removed element at the end
+            list.add(first);
         }
 
-        // printing rotated list
+        // Print rotated list
         System.out.println(list);
     }
 }

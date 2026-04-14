@@ -3,7 +3,7 @@ package regex;
 import java.util.regex.Pattern;
 
 // UC2: Validate First Name and Last Name
-public class NameValidation_2 {
+public class NameValidation {
 
     // validate first name
     static boolean validateFirstName(String firstName) {

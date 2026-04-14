@@ -6,20 +6,28 @@ public class WordFrequencyProgram {
 
     public static void main(String[] args) {
 
+        // Input text
         String text = "Hello world hello Java";
 
-        // converting to lowercase
+        // Convert text to lowercase for case-insensitive counting
         text = text.toLowerCase();
 
+        // Split text into words using space as delimiter
         String[] words = text.split(" ");
 
+        // Map to store word → frequency
         Map<String, Integer> map = new HashMap<>();
 
-        // counting words
+        // Traverse each word
         for(String w : words) {
-            map.put(w, map.getOrDefault(w,0)+1);
+
+            // Update frequency count
+            // If word exists → increment
+            // Else → default 0 + 1
+            map.put(w, map.getOrDefault(w, 0) + 1);
         }
 
+        // Print word frequency map
         System.out.println(map);
     }
 }

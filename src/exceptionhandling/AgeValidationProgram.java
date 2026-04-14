@@ -1,11 +1,11 @@
 package exceptionhandling;
 
-import java.util.*;
+import java.util.*; // importing utility classes like Scanner
 
 // custom exception
 class InvalidAgeException extends Exception {
-    InvalidAgeException(String msg) {
-        super(msg);
+    InvalidAgeException(String msg) { // constructor that accepts error message
+        super(msg); // passing message to parent Exception class
     }
 }
 
@@ -13,26 +13,26 @@ class InvalidAgeException extends Exception {
 public class AgeValidationProgram {
 
     // validating age
-    static void validateAge(int age) throws InvalidAgeException {
+    static void validateAge(int age) throws InvalidAgeException { // method that may throw custom exception
 
-        if(age < 18) {
-            throw new InvalidAgeException("Age must be 18 or above");
+        if(age < 18) { // checking if age is less than 18
+            throw new InvalidAgeException("Age must be 18 or above"); // throwing custom exception
         }
 
-        System.out.println("Access granted!");
+        System.out.println("Access granted!"); // printing success message if age is valid
     }
 
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in); // creating Scanner object for input
 
         try {
-            int age = sc.nextInt();
+            int age = sc.nextInt(); // reading integer input from user
 
-            validateAge(age);
+            validateAge(age); // calling validation method
 
-        } catch(InvalidAgeException e) {
-            System.out.println(e.getMessage());
+        } catch(InvalidAgeException e) { // catching custom exception
+            System.out.println(e.getMessage()); // printing exception message
         }
     }
 }

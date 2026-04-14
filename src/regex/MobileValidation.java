@@ -3,7 +3,7 @@ package regex;
 import java.util.regex.Pattern;
 
 // UC4: Validate Mobile Number
-public class MobileValidation_4 {
+public class MobileValidation {
 
     // rule: country code + space + 10 digit number
     static boolean validateMobile(String mobile) {

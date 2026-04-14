@@ -6,18 +6,22 @@ public class FrequencyCounterProgram {
 
     public static void main(String[] args) {
 
-        // input list
-        List<String> list = Arrays.asList("apple","banana","apple","orange");
+        // Create input list of strings
+        List<String> list = Arrays.asList("apple", "banana", "apple", "orange");
 
-        // map to store frequency
+        // Map to store frequency of each string
         Map<String, Integer> map = new HashMap<>();
 
-        // counting frequency
+        // Traverse each element in the list
         for(String s : list) {
+
+            // Update frequency:
+            // If key exists → increment value
+            // Else → default value 0 + 1
             map.put(s, map.getOrDefault(s, 0) + 1);
         }
 
-        // printing result
+        // Print the frequency map
         System.out.println(map);
     }
 }

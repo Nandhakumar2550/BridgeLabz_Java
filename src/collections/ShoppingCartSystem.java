@@ -6,22 +6,28 @@ public class ShoppingCartSystem {
 
     public static void main(String[] args) {
 
-        // HashMap for prices
+        // HashMap to store item → price (no order, fast access)
         Map<String, Integer> priceMap = new HashMap<>();
+
+        // Add items and their prices
         priceMap.put("Pen", 10);
         priceMap.put("Book", 50);
         priceMap.put("Bag", 200);
 
-        // LinkedHashMap for order of items added
+        // LinkedHashMap to maintain insertion order of cart items
         Map<String, Integer> cart = new LinkedHashMap<>();
+
+        // Add items to cart using priceMap
         cart.put("Book", priceMap.get("Book"));
         cart.put("Pen", priceMap.get("Pen"));
 
-        // TreeMap for sorted items
+        // TreeMap to sort cart items by key (item name)
         Map<String, Integer> sorted = new TreeMap<>(cart);
 
-        // display cart
+        // Display cart (in insertion order)
         System.out.println("Cart: " + cart);
+
+        // Display sorted cart (alphabetical order)
         System.out.println("Sorted Cart: " + sorted);
     }
 }

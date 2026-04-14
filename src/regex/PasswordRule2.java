@@ -3,7 +3,7 @@ package regex;
 import java.util.regex.Pattern;
 
 // UC6: Password Rule2
-public class PasswordRule2_6 {
+public class PasswordRule2 {
 
     // rule: at least one uppercase letter
     static boolean validatePassword(String password) {

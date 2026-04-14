@@ -6,22 +6,30 @@ public class NthElementFromEndProgram {
 
     public static void main(String[] args) {
 
-        // input linkedlist
-        LinkedList<String> list = new LinkedList<>(Arrays.asList("A","B","C","D","E"));
+        // Create LinkedList with elements
+        LinkedList<String> list = new LinkedList<>(Arrays.asList("A", "B", "C", "D", "E"));
 
+        // Position from end (n = 2 means 2nd element from end)
         int n = 2;
 
-        // using two pointer method
+        // Two pointers (indices)
         int fast = 0, slow = 0;
 
+        // Move fast pointer through the list
         while(fast < list.size()) {
+
+            // Maintain gap of n elements between fast and slow
             if(fast - slow > n - 1) {
+
+                // Move slow pointer forward
                 slow++;
             }
+
+            // Move fast pointer forward
             fast++;
         }
 
-        // printing nth element from end
+        // Print nth element from end
         System.out.println(list.get(slow));
     }
 }

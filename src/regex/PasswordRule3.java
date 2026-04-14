@@ -2,12 +2,12 @@ package regex;
 
 import java.util.regex.Pattern;
 
-// UC5: Password Rule1
-public class PasswordRule1_5 {
+// UC7: Password Rule3
+public class PasswordRule3 {
 
-    // rule: minimum 8 characters
+    // rule: at least one numeric value
     static boolean validatePassword(String password) {
-        String pattern = ".{8,}";
+        String pattern = ".*[0-9].*";
         return Pattern.matches(pattern, password);
     }
 
@@ -15,6 +15,6 @@ public class PasswordRule1_5 {
 
         String password = "Pass@123";
 
-        System.out.println("Rule1 Valid: " + validatePassword(password));
+        System.out.println("Rule3 Valid: " + validatePassword(password));
     }
 }

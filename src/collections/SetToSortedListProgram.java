@@ -6,15 +6,16 @@ public class SetToSortedListProgram {
 
     public static void main(String[] args) {
 
-        // created set
-        Set<Integer> set = new HashSet<>(Arrays.asList(5,3,9,1));
+        // Create a set with elements (unordered, unique values)
+        Set<Integer> set = new HashSet<>(Arrays.asList(5, 3, 9, 1));
 
-        // converting to list
+        // Convert set to list
         List<Integer> list = new ArrayList<>(set);
 
-        // sorting list
+        // Sort the list in ascending order
         Collections.sort(list);
 
+        // Print sorted list
         System.out.println(list);
     }
 }

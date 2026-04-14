@@ -3,7 +3,7 @@ package regex;
 import java.util.regex.Pattern;
 
 // UC1: Validate First Name
-public class FirstNameValidation_1 {
+public class FirstNameValidation {
 
     // method to validate first name
     // rule: starts with capital and minimum 3 letters

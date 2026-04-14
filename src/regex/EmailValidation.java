@@ -3,7 +3,7 @@ package regex;
 import java.util.regex.Pattern;
 
 // UC3: Validate Email
-public class EmailValidation_3 {
+public class EmailValidation {
 
     // validate email with optional parts
     static boolean validateEmail(String email) {

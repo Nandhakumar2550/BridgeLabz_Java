@@ -3,7 +3,7 @@ package regex;
 import java.util.regex.Pattern;
 
 // UC9: Validate All Inputs
-public class UserRegistration_9 {
+public class UserRegistration {
 
     static boolean firstName(String s) {
         return Pattern.matches("^[A-Z][a-z]{2,}$", s);

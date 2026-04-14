@@ -2,29 +2,29 @@ package exceptionhandling;
 
 // custom exception
 class InsufficientBalanceException extends Exception {
-    InsufficientBalanceException(String msg) {
-        super(msg);
+    InsufficientBalanceException(String msg) { // constructor to accept error message
+        super(msg); // passing message to parent Exception class
     }
 }
 
 // bank class
 class BankAccount {
-    double balance = 5000;
+    double balance = 5000; // initializing account balance
 
     // withdraw method
-    void withdraw(double amount) throws InsufficientBalanceException {
+    void withdraw(double amount) throws InsufficientBalanceException { // method may throw custom exception
 
-        if(amount < 0) {
-            throw new IllegalArgumentException("Invalid amount!");
+        if(amount < 0) { // checking if amount is negative
+            throw new IllegalArgumentException("Invalid amount!"); // throwing built-in exception
         }
 
-        if(amount > balance) {
-            throw new InsufficientBalanceException("Insufficient balance!");
+        if(amount > balance) { // checking if withdrawal exceeds balance
+            throw new InsufficientBalanceException("Insufficient balance!"); // throwing custom exception
         }
 
-        balance -= amount;
+        balance -= amount; // deducting amount from balance
 
-        System.out.println("Withdrawal successful, new balance: " + balance);
+        System.out.println("Withdrawal successful, new balance: " + balance); // printing updated balance
     }
 }
 
@@ -33,16 +33,16 @@ public class BankSystem {
 
     public static void main(String[] args) {
 
-        BankAccount acc = new BankAccount();
+        BankAccount acc = new BankAccount(); // creating BankAccount object
 
         try {
-            acc.withdraw(6000);
+            acc.withdraw(6000); // attempting to withdraw more than balance
 
-        } catch(InsufficientBalanceException e) {
-            System.out.println(e.getMessage());
+        } catch(InsufficientBalanceException e) { // catching custom exception
+            System.out.println(e.getMessage()); // printing custom exception message
 
-        } catch(IllegalArgumentException e) {
-            System.out.println(e.getMessage());
+        } catch(IllegalArgumentException e) { // catching invalid argument exception
+            System.out.println(e.getMessage()); // printing error message
         }
     }
 }

@@ -4,16 +4,20 @@ import java.util.*;
 
 // Employee class
 class Employee {
+
+    // Name of employee
     String name;
+
+    // Department of employee
     String department;
 
-    // constructor
+    // Constructor to initialize employee details
     Employee(String name, String department) {
         this.name = name;
         this.department = department;
     }
 
-    // to print employee name
+    // Override toString() to print employee name
     public String toString() {
         return name;
     }
@@ -24,27 +28,31 @@ public class EmployeeGroupingSystem {
 
     public static void main(String[] args) {
 
-        // created employee list
+        // Create list to store employees
         List<Employee> list = new ArrayList<>();
+
+        // Add employee objects to list
         list.add(new Employee("Alice", "HR"));
         list.add(new Employee("Bob", "IT"));
         list.add(new Employee("Carol", "HR"));
 
-        // map to group employees by department
+        // Map to group employees by department
         Map<String, List<Employee>> map = new HashMap<>();
 
-        // grouping logic
+        // Traverse each employee
         for(Employee e : list) {
 
-            // if department not present, create new list
+            // If department key is not present, create new list
             map.putIfAbsent(e.department, new ArrayList<>());
 
-            // add employee to that department
+            // Add employee to corresponding department list
             map.get(e.department).add(e);
         }
 
-        // printing result
+        // Print grouped employees
         for(String dept : map.keySet()) {
+
+            // Print department and list of employees
             System.out.println(dept + " : " + map.get(dept));
         }
     }

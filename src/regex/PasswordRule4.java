@@ -3,7 +3,7 @@ package regex;
 import java.util.regex.Pattern;
 
 // UC8: Password Rule4
-public class PasswordRule4_8 {
+public class PasswordRule4 {
 
     // rule: exactly one special character
     static boolean validatePassword(String password) {
